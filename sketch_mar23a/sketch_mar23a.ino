@@ -23,7 +23,7 @@ void loop() {
       digitalWrite(13, LOW);
       delay(100);
     }
-
+    //Values are represents angles
     if (command == '1') myServo.write(45);
     else if (command == '2') myServo.write(90);
     else if (command == '3') myServo.write(135);
