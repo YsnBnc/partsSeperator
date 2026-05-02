@@ -11,7 +11,7 @@ results = model.predict(source=0, show=True, stream=True, conf=0.5) #Camera
 last_confirmed_state = '0'
 candidate_state = '0'
 consecutive_count = 0
-CONFIRMATION_THRESHOLD = 10
+ITERATION_THRESHOLD = 10 
 last_sent = '0'
 
 for r in results:
@@ -31,7 +31,7 @@ for r in results:
         candidate_state = current_target
         consecutive_count = 0
 
-    if consecutive_count >= CONFIRMATION_THRESHOLD:
+    if consecutive_count >= ITERATION_THRESHOLD:
         if candidate_state != last_confirmed_state:
             arduino.write(candidate_state.encode())
             print(f"State: {candidate_state}")
